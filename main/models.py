@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
- 
 # 과학 이슈 모델
 class ScienceIssue(models.Model):
     title = models.CharField(max_length=200)  # 제목

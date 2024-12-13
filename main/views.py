@@ -1,10 +1,12 @@
-# from django.shortcuts import render, get_object_or_404
-# from main.models import ScienceIssue
-
-# def admin(request):
-#     return render(request, 'first/base.html')
-
 from django.shortcuts import render
 
-def main(request):
-    return render(request, 'first/base.html')
+def home(request):
+    return render(request, 'cosmicflow.html')  # cosmicflow.html 파일로 연결
+
+import os
+from django.conf import settings
+
+def home(request):
+    template_path = os.path.join(settings.BASE_DIR, "main/templates/cosmicflow.html")
+    print(f"템플릿 경로 확인: {template_path}")
+    return render(request, 'cosmicflow.html')

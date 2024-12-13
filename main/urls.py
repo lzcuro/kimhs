@@ -1,15 +1,6 @@
-# from django.urls import path
-# from . import views
-# from django.contrib import admin
-
-
-# urlpatterns = [
-#     path('admin/', admin.site.urls)
-# ]
-
 from django.urls import path
-from . import views
+from . import views  # views.py 파일 import
 
 urlpatterns = [
-    path('', views.main, name='main'),
+    path('', views.home, name='home'),  # 메인 페이지
 ]
