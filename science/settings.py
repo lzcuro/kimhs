@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-*9e#%=(fd906jju%(u)djbj602&&sd49mxjb3qa&bd!u$v$gn7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['15.165.194.116', 'cosmicflow.shop','127.0.0.1:8000', '127.0.0.1']
 
 # Application definition
 
@@ -115,8 +114,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
+import os
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # 프로젝트 내 정적 파일 경로
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category_name }} - Categories</title>
+    <style>
+        /* 페이지 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* 네이게이션 바 스타일 */
+        .navbar {
+            background-color:  #282c34;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* CosmicFlow 클릭 시 메인페이지로 돌아가게 링크 스타일 */
+        .navbar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* 헤더 스타일 */
+        header {
+            background-color: #282c34;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* 카테고리 섹션 스타일 */
+        .category-section {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            margin-top: 80px; /* 헤더 아래로 내용을 배치 */
+            padding: 20px;
+        }
+
+        /* 섹션 링크 스타일 */
+        .category-section a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .category-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 네비게이션 바 추가 -->
+    <div class="navbar">
+        <a href="/">CosmicFlow</a> <!-- 메인페이지로 돌아가게 링크 -->
+    </div>
+
+    <header>
+        <h1>{{ category_name }} Sections</h1>
+    </header>
+
+    <div class="main-content">
+        {% for section in sections %}
+        <div class="category-section">
+            <h2>{{ section.title }}</h2>
+            <p>Written by: {{ section.author }}</p>
+            <p>Categories: {{ section.categories|join:", " }}</p>
+            <a href="/section/{{ section.id }}/">Read More</a>
+        </div>
+        {% empty %}
+        <p>No sections available in this category.</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
