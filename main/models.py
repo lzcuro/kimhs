@@ -68,3 +68,13 @@ class NewsTheoryPost(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# 수정된 Section 모델
+class Section(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=200)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title
